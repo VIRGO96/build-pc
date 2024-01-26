@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "public": "dist",
+    "site":"build-pc",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
