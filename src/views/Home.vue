@@ -10,7 +10,7 @@
                 press for supplying High Performance Personal Computers and IT
                 Hardware.
             </p>
-            <b-row class="mt-5">
+            <b-row class="my-5">
                 <b-col
                     cols="12"
                     md="6"
