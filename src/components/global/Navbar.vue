@@ -1,8 +1,8 @@
 <template>
     <div>
-        <b-navbar toggleable="md" type="light">
+        <b-navbar toggleable="md" type="light" class="px-md-4 px-sm-3 px-2">
             <b-navbar-brand href="#"
-                ><img src="../../assets/logo.png" height="80px"
+                ><img src="../../assets/logo.png"
             /></b-navbar-brand>
 
             <b-navbar-toggle
@@ -68,5 +68,19 @@
 <style lang="scss" scoped>
 .navbar {
     background-color: #cad7e7;
+    .navbar-brand {
+        img {
+            width: 400px;
+            @media (max-width: 991.92px) {
+                width: 240px;
+            }
+            @media (max-width: 768.92px) {
+                width: 300px;
+            }
+            @media (max-width: 600px) {
+                width: 200px;
+            }
+        }
+    }
 }
 </style>

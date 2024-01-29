@@ -40,4 +40,12 @@ export default {
         }
     }
 }
+
+.navbar-toggler {
+    padding: 0.25rem 0.5rem !important;
+    .navbar-toggler-icon {
+        width: 1.2rem;
+        height: 1.2rem;
+    }
+}
 </style>
