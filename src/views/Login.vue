@@ -44,12 +44,8 @@
                                 <span
                                     class="d-flex align-items-center justify-content-center"
                                     v-if="isLoading"
-                                    ><b-spinner
-                                        class="mr-1"
-                                        small
-                                        label="Loading..."
-                                    />
-                                    Logging...</span
+                                    ><b-spinner class="mr-1" small /> Logging
+                                    In...</span
                                 >
                                 <span v-else>Login</span></b-button
                             >

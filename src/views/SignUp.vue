@@ -56,12 +56,8 @@
                                 <span
                                     class="d-flex align-items-center justify-content-center"
                                     v-if="isLoading"
-                                    ><b-spinner
-                                        class="mr-1"
-                                        small
-                                        label="Loading..."
-                                    />
-                                    Signing Up...</span
+                                    ><b-spinner class="mr-1" small /> Signing
+                                    Up...</span
                                 >
                                 <span v-else>Sign Up</span></b-button
                             >
@@ -79,12 +75,13 @@
 
 <script>
 import { RouterLink } from "vue-router";
+import { mapState } from "vuex";
+
 export default {
     name: "SignUp",
     components: { RouterLink },
     data() {
         return {
-            isLoading: false,
             formData: {
                 username: "",
                 email: "",
@@ -92,9 +89,25 @@ export default {
             },
         };
     },
+    computed: {
+        ...mapState({
+            isLoading: (state) => state.Auth.isLoading,
+        }),
+    },
     methods: {
         handleSubmit() {
-            console.log("Submitting SignUp", this.formData);
+            // console.log("Submitting SignUp", this.formData);
+            const data = this.formData;
+            this.$store.dispatch("signupUser", {
+                payload: data,
+                onSuccess: () => {
+                    this.formData = {
+                        username: "",
+                        email: "",
+                        password: "",
+                    };
+                },
+            });
         },
     },
 };
