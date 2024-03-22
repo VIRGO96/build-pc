@@ -1,9 +1,11 @@
 <template>
     <div>
         <b-navbar toggleable="md" type="light" class="px-md-4 px-sm-3 px-2">
-            <b-navbar-brand href="#"
-                ><img src="../../assets/logo.png"
-            /></b-navbar-brand>
+            <router-link to="/">
+                <b-navbar-brand
+                    ><img src="../../assets/logo.png"
+                /></b-navbar-brand>
+            </router-link>
 
             <b-navbar-toggle
                 target="nav-collapse"
@@ -15,7 +17,7 @@
                 is-nav
                 class="ms-auto justify-content-end"
             >
-                <b-navbar-nav>
+                <b-navbar-nav class="d-flex align-items-center">
                     <b-nav-item href="#" class="fw-semibold"
                         >Support info</b-nav-item
                     >
@@ -27,6 +29,14 @@
                     >
                     <b-nav-item href="#" class="fw-semibold"
                         >Profile</b-nav-item
+                    >
+                    <b-nav-item class="fw-semibold">
+                        <b-button
+                            @click="$router.push('/login')"
+                            class="bg-dark text-white"
+                        >
+                            Login
+                        </b-button></b-nav-item
                     >
                 </b-navbar-nav>
 
@@ -63,7 +73,12 @@
     </div>
 </template>
 
-<script></script>
+<script>
+import { RouterLink } from "vue-router";
+export default {
+    components: { RouterLink },
+};
+</script>
 
 <style lang="scss" scoped>
 .navbar {

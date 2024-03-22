@@ -57,7 +57,9 @@
                     </div>
                     <p class="mt-3">
                         You don't have an account?
-                        <span class="text-primary">create an account</span>
+                        <router-link to="/register"
+                            >create an account</router-link
+                        >
                     </p>
                 </b-card>
             </b-col>
@@ -66,8 +68,10 @@
 </template>
 
 <script>
+import { RouterLink } from "vue-router";
 export default {
     name: "Login",
+    components: { RouterLink },
     data() {
         return {
             isLoading: false,
@@ -80,6 +84,7 @@ export default {
     methods: {
         handleSubmit() {
             console.log("Submitting Login", this.formData);
+            this.$router.replace("item-details");
         },
     },
 };

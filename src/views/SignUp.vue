@@ -69,7 +69,7 @@
                     </div>
                     <p class="mt-3">
                         or
-                        <span class="text-primary">go back</span> to login.
+                        <router-link to="/login">go back</router-link> to login.
                     </p>
                 </b-card>
             </b-col>
@@ -78,8 +78,10 @@
 </template>
 
 <script>
+import { RouterLink } from "vue-router";
 export default {
     name: "SignUp",
+    components: { RouterLink },
     data() {
         return {
             isLoading: false,
