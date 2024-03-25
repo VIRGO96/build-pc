@@ -30,12 +30,20 @@
                     <b-nav-item href="#" class="fw-semibold"
                         >Profile</b-nav-item
                     >
-                    <b-nav-item class="fw-semibold">
+                    <b-nav-item v-if="!isUserLoggedIn" class="fw-semibold">
                         <b-button
                             @click="$router.push('/login')"
                             class="bg-dark text-white"
                         >
                             Login
+                        </b-button></b-nav-item
+                    >
+                    <b-nav-item v-if="isUserLoggedIn" class="fw-semibold">
+                        <b-button
+                            @click="logout"
+                            class="bg-secondary text-white"
+                        >
+                            Logout
                         </b-button></b-nav-item
                     >
                 </b-navbar-nav>
@@ -75,8 +83,25 @@
 
 <script>
 import { RouterLink } from "vue-router";
+import { mapState } from "vuex";
 export default {
     components: { RouterLink },
+    computed: {
+        ...mapState({
+            isUserLoggedIn: (state) => {
+                console.log("Hamza", state.Auth.isUserLoggedIn);
+                console.log("Hamza uid", state.Auth.uid);
+                console.log("Hamza user", state.Auth.user);
+                return state.Auth.isUserLoggedIn;
+            },
+        }),
+    },
+    methods: {
+        logout() {
+            console.log("Logout!");
+            this.$store.dispatch("logout");
+        },
+    },
 };
 </script>
 

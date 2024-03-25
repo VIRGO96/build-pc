@@ -65,22 +65,38 @@
 
 <script>
 import { RouterLink } from "vue-router";
+import { mapState } from "vuex";
+
 export default {
     name: "Login",
     components: { RouterLink },
     data() {
         return {
-            isLoading: false,
             formData: {
                 email: "",
                 password: "",
             },
         };
     },
+    computed: {
+        ...mapState({
+            isLoading: (state) => state.Auth.isLoading,
+        }),
+    },
     methods: {
         handleSubmit() {
             console.log("Submitting Login", this.formData);
-            this.$router.replace("item-details");
+            const data = this.formData;
+            this.$store.dispatch("loginUser", {
+                payload: data,
+                onSuccess: () => {
+                    this.formData = {
+                        email: "",
+                        password: "",
+                    };
+                    this.$router.replace("item-details");
+                },
+            });
         },
     },
 };

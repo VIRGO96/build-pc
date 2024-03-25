@@ -106,6 +106,7 @@ export default {
                         email: "",
                         password: "",
                     };
+                    this.$router.replace("item-details");
                 },
             });
         },
