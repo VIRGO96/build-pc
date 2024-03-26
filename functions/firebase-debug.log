@@ -1,0 +1,978 @@
+[debug] [2024-03-25T15:57:40.185Z] ----------------------------------------------------------------------
+[debug] [2024-03-25T15:57:40.190Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\AL RASHIDS\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2024-03-25T15:57:40.191Z] CLI Version:   12.6.1
+[debug] [2024-03-25T15:57:40.192Z] Platform:      win32
+[debug] [2024-03-25T15:57:40.192Z] Node Version:  v18.19.0
+[debug] [2024-03-25T15:57:40.194Z] Time:          Mon Mar 25 2024 20:57:40 GMT+0500 (Pakistan Standard Time)
+[debug] [2024-03-25T15:57:40.195Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-03-25T15:57:40.386Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-03-25T15:57:40.387Z] > authorizing via signed-in user (aseem_asghar@nextpak.org)
+[debug] [2024-03-25T15:57:40.387Z] [iam] checking project gamingxbuilder for permissions ["firebase.projects.get"]
+[debug] [2024-03-25T15:57:40.391Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/gamingxbuilder:testIamPermissions [none]
+[debug] [2024-03-25T15:57:40.391Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/gamingxbuilder:testIamPermissions x-goog-quota-user=projects/gamingxbuilder
+[debug] [2024-03-25T15:57:40.391Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/gamingxbuilder:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2024-03-25T15:57:42.545Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/gamingxbuilder:testIamPermissions 200
+[debug] [2024-03-25T15:57:42.547Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/gamingxbuilder:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2024-03-25T15:57:42.551Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/gamingxbuilder [none]
+[debug] [2024-03-25T15:57:43.657Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/gamingxbuilder 200
+[debug] [2024-03-25T15:57:43.658Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/gamingxbuilder {"projectId":"gamingxbuilder","projectNumber":"99908734491","displayName":"GamingXBuilder","name":"projects/gamingxbuilder","resources":{"hostingSite":"gamingxbuilder","realtimeDatabaseInstance":"gamingxbuilder-default-rtdb"},"state":"ACTIVE","etag":"1_45de2ed1-fff1-4a6a-88f2-0dc301a15ffc"}
+[info] 
+[info] === Serving from 'D:\Projects\build-pc'...
+[info] 
+[debug] [2024-03-25T15:57:43.682Z] defaultcredentials: writing to file C:\Users\AL RASHIDS\AppData\Roaming\firebase\aseem_asghar_nextpak_org_application_default_credentials.json
+[debug] [2024-03-25T15:57:43.689Z] Setting GAC to C:\Users\AL RASHIDS\AppData\Roaming\firebase\aseem_asghar_nextpak_org_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\AL RASHIDS\\AppData\\Roaming\\firebase\\aseem_asghar_nextpak_org_application_default_credentials.json"}}
+[debug] [2024-03-25T15:57:43.692Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/gamingxbuilder/adminSdkConfig [none]
+[debug] [2024-03-25T15:57:44.306Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/gamingxbuilder/adminSdkConfig 200
+[debug] [2024-03-25T15:57:44.307Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/gamingxbuilder/adminSdkConfig {"projectId":"gamingxbuilder","databaseURL":"https://gamingxbuilder-default-rtdb.europe-west1.firebasedatabase.app","storageBucket":"gamingxbuilder.appspot.com"}
+[info] i  functions: Watching "D:\Projects\build-pc\functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"D:\\Projects\\build-pc\\functions\" for Cloud Functions..."}}
+[debug] [2024-03-25T15:57:44.383Z] Validating nodejs source
+[debug] [2024-03-25T15:57:46.531Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^1.6.8",
+    "cheerio": "^1.0.0-rc.12",
+    "express": "^4.19.1",
+    "firebase-admin": "^11.8.0",
+    "firebase-functions": "^4.3.1"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
+[debug] [2024-03-25T15:57:46.531Z] Building nodejs source
+[debug] [2024-03-25T15:57:46.532Z] Failed to find version of module node: reached end of search path D:\Projects\build-pc\functions\node_modules
+[info] +  functions: Using node@18 from host. 
+[debug] [2024-03-25T15:57:46.536Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-03-25T15:57:46.548Z] Found firebase-functions binary at 'D:\Projects\build-pc\functions\node_modules\.bin\firebase-functions'
+[info] Serving at port 8382
+
+[debug] [2024-03-25T15:57:47.684Z] Got response from /__/functions.yaml {"endpoints":{},"specVersion":"v1alpha1","requiredAPIs":[]}
+[info] products 513
+
+[info] count 1
+
+[info] count 2
+
+[info] count 3
+
+[info] +  functions: Loaded functions definitions from source: . {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: ."}}
+[info] count 4
+
+[info] count 5
+
+[info] count 6
+
+[info] count 7
+
+[info] count 8
+
+[info] count 9
+
+[info] count 10
+
+[info] count 11
+
+[info] count 12
+
+[info] count 13
+
+[info] count 14
+
+[info] count 15
+
+[info] count 16
+
+[info] count 17
+
+[info] count 18
+
+[info] count 19
+
+[info] count 20
+
+[info] count 21
+
+[info] count 22
+
+[info] count 23
+
+[info] count 24
+
+[info] count 25
+
+[info] count 26
+
+[info] count 27
+
+[info] count 28
+
+[info] count 29
+
+[info] count 30
+
+[info] count 31
+count 32
+count 33
+count 34
+count 35
+count 36
+count 37
+count 38
+count 39
+count 40
+count 41
+count 42
+count 43
+count 44
+count 45
+count 46
+count 47
+count 48
+count 49
+count 50
+count 51
+count 52
+count 53
+count 54
+count 55
+count 56
+count 57
+count 58
+count 59
+count 60
+count 61
+count 62
+count 63
+count 64
+count 65
+count 66
+count 67
+count 68
+count 69
+count 70
+count 71
+count 72
+count 73
+count 74
+count 75
+count 76
+count 77
+count 78
+count 79
+count 80
+count 81
+count 82
+count 83
+count 84
+count 85
+count 86
+count 87
+count 88
+count 89
+count 90
+count 91
+
+[info] count 92
+
+[info] count 93
+
+[info] count 94
+
+[info] count 95
+
+[info] count 96
+
+[info] count 97
+
+[info] count 98
+
+[info] count 99
+
+[info] count 100
+
+[info] count 101
+
+[info] count 102
+
+[info] count 103
+
+[info] count 104
+
+[info] count 105
+
+[info] count 106
+
+[info] count 107
+
+[info] count 108
+
+[info] count 109
+
+[info] count 110
+
+[info] count 111
+
+[info] count 112
+
+[info] count 113
+
+[info] count 114
+
+[info] count 115
+
+[info] count 116
+
+[info] count 117
+
+[info] count 118
+
+[info] count 119
+
+[info] count 120
+
+[info] count 121
+
+[info] count 122
+
+[info] count 123
+
+[info] count 124
+
+[info] count 125
+
+[info] count 126
+
+[info] count 127
+
+[info] count 128
+
+[info] count 129
+
+[info] count 130
+
+[info] count 131
+
+[info] count 132
+
+[info] count 133
+
+[info] count 134
+
+[info] count 135
+
+[info] count 136
+
+[info] count 137
+
+[info] count 138
+
+[info] count 139
+
+[info] count 140
+
+[info] count 141
+
+[info] count 142
+count 143
+count 144
+count 145
+count 146
+count 147
+count 148
+count 149
+count 150
+count 151
+count 152
+count 153
+count 154
+count 155
+count 156
+count 157
+count 158
+count 159
+count 160
+count 161
+count 162
+count 163
+count 164
+count 165
+count 166
+count 167
+count 168
+count 169
+count 170
+count 171
+count 172
+count 173
+count 174
+
+[info] count 175
+
+[info] count 176
+
+[info] count 177
+
+[info] count 178
+
+[info] count 179
+
+[info] count 180
+
+[info] count 181
+
+[info] count 182
+
+[info] count 183
+
+[info] count 184
+
+[info] count 185
+
+[info] count 186
+
+[info] count 187
+
+[info] count 188
+
+[info] count 189
+
+[info] count 190
+
+[info] count 191
+
+[info] count 192
+
+[info] count 193
+
+[info] count 194
+
+[info] count 195
+
+[info] count 196
+
+[info] count 197
+
+[info] count 198
+
+[info] count 199
+
+[info] count 200
+
+[info] count 201
+
+[info] count 202
+
+[info] count 203
+
+[info] count 204
+
+[info] count 205
+
+[info] count 206
+
+[info] count 207
+
+[info] count 208
+
+[info] count 209
+
+[info] count 210
+
+[info] count 211
+
+[info] count 212
+
+[info] count 213
+
+[info] count 214
+
+[info] count 215
+
+[info] count 216
+
+[info] count 217
+
+[info] count 218
+
+[info] count 219
+
+[info] count 220
+
+[info] count 221
+
+[info] count 222
+
+[info] count 223
+
+[info] count 224
+
+[info] count 225
+
+[info] count 226
+
+[info] count 227
+
+[info] count 228
+
+[info] count 229
+
+[info] count 230
+
+[info] count 231
+
+[info] count 232
+
+[info] count 233
+
+[info] count 234
+
+[info] count 235
+
+[info] count 236
+
+[info] count 237
+
+[info] count 238
+
+[info] count 239
+
+[info] count 240
+
+[info] count 241
+
+[info] count 242
+
+[info] count 243
+
+[info] count 244
+
+[info] count 245
+
+[info] count 246
+
+[info] count 247
+
+[info] count 248
+
+[info] count 249
+
+[info] count 250
+
+[info] count 251
+
+[info] count 252
+
+[info] count 253
+
+[info] count 254
+
+[info] count 255
+
+[info] count 256
+
+[info] count 257
+
+[info] count 258
+
+[info] count 259
+
+[info] count 260
+
+[info] count 261
+
+[info] count 262
+
+[info] count 263
+
+[info] count 264
+
+[info] count 265
+
+[info] count 266
+
+[info] count 267
+
+[info] count 268
+
+[info] count 269
+
+[info] count 270
+
+[info] count 271
+
+[info] count 272
+
+[info] count 273
+
+[info] count 274
+
+[info] count 275
+
+[info] count 276
+
+[info] count 277
+
+[info] count 278
+
+[info] count 279
+
+[info] count 280
+
+[info] count 281
+
+[info] count 282
+
+[info] count 283
+
+[info] count 284
+
+[info] count 285
+
+[info] count 286
+
+[info] count 287
+
+[info] count 288
+
+[info] count 289
+
+[info] count 290
+
+[info] count 291
+
+[info] count 292
+
+[info] count 293
+
+[info] count 294
+
+[info] count 295
+
+[info] count 296
+
+[info] count 297
+
+[info] count 298
+
+[info] count 299
+
+[info] count 300
+
+[info] count 301
+
+[info] count 302
+
+[info] count 303
+
+[info] count 304
+
+[info] count 305
+
+[info] count 306
+
+[info] count 307
+
+[info] count 308
+
+[info] count 309
+
+[info] count 310
+
+[info] count 311
+
+[info] count 312
+
+[info] count 313
+
+[info] count 314
+
+[info] count 315
+
+[info] count 316
+
+[info] count 317
+
+[info] count 318
+
+[info] count 319
+
+[info] count 320
+
+[info] count 321
+
+[info] count 322
+
+[info] count 323
+
+[info] count 324
+
+[info] count 325
+
+[info] count 326
+
+[info] count 327
+
+[info] count 328
+
+[info] count 329
+
+[info] count 330
+
+[info] count 331
+
+[info] count 332
+
+[info] count 333
+
+[info] count 334
+
+[info] count 335
+
+[info] count 336
+
+[info] count 337
+
+[info] count 338
+
+[info] count 339
+
+[info] count 340
+
+[info] count 341
+
+[info] count 342
+
+[info] count 343
+
+[info] count 344
+
+[info] count 345
+
+[info] count 346
+
+[info] count 347
+
+[info] count 348
+
+[info] count 349
+
+[info] count 350
+
+[info] count 351
+
+[info] count 352
+
+[info] count 353
+
+[info] count 354
+
+[info] count 355
+
+[info] count 356
+
+[info] count 357
+
+[info] count 358
+
+[info] count 359
+
+[info] count 360
+
+[info] count 361
+
+[info] count 362
+
+[info] count 363
+
+[info] count 364
+
+[info] count 365
+
+[info] count 366
+
+[info] count 367
+
+[info] count 368
+
+[info] count 369
+
+[info] count 370
+
+[info] count 371
+
+[info] count 372
+
+[info] count 373
+
+[info] count 374
+
+[info] count 375
+
+[info] count 376
+
+[info] count 377
+
+[info] count 378
+
+[info] count 379
+
+[info] count 380
+
+[info] count 381
+
+[info] count 382
+
+[info] count 383
+
+[info] count 384
+
+[info] count 385
+
+[info] count 386
+
+[info] count 387
+
+[info] count 388
+
+[info] count 389
+
+[info] count 390
+
+[info] count 391
+
+[info] count 392
+
+[info] count 393
+
+[info] count 394
+
+[info] count 395
+
+[info] count 396
+
+[info] count 397
+
+[info] count 398
+
+[info] count 399
+
+[info] count 400
+
+[info] count 401
+
+[info] count 402
+
+[info] count 403
+
+[info] count 404
+
+[info] count 405
+
+[info] count 406
+
+[info] count 407
+
+[info] count 408
+
+[info] count 409
+
+[info] count 410
+
+[info] count 411
+
+[info] count 412
+
+[info] count 413
+
+[info] count 414
+
+[info] count 415
+
+[info] count 416
+
+[info] count 417
+
+[info] count 418
+
+[info] count 419
+
+[info] count 420
+
+[info] count 421
+
+[info] count 422
+
+[info] count 423
+
+[info] count 424
+
+[info] count 425
+
+[info] count 426
+
+[info] count 427
+
+[info] count 428
+
+[info] count 429
+
+[info] count 430
+
+[info] count 431
+
+[info] count 432
+
+[info] count 433
+count 434
+count 435
+count 436
+count 437
+count 438
+count 439
+count 440
+count 441
+count 442
+count 443
+count 444
+count 445
+count 446
+count 447
+count 448
+count 449
+count 450
+count 451
+count 452
+count 453
+count 454
+count 455
+
+[info] count 456
+
+[info] count 457
+
+[info] count 458
+
+[info] count 459
+
+[info] count 460
+
+[info] count 461
+
+[info] count 462
+
+[info] count 463
+
+[info] count 464
+
+[info] count 465
+
+[info] count 466
+
+[info] count 467
+
+[info] count 468
+
+[info] count 469
+
+[info] count 470
+
+[info] count 471
+
+[info] count 472
+
+[info] count 473
+
+[info] count 474
+
+[info] count 475
+
+[info] count 476
+
+[info] count 477
+
+[info] count 478
+
+[info] count 479
+
+[info] count 480
+
+[info] count 481
+
+[info] count 482
+
+[info] count 483
+
+[info] count 484
+
+[info] count 485
+
+[info] count 486
+
+[info] count 487
+
+[info] count 488
+
+[info] count 489
+
+[info] count 490
+
+[info] count 491
+
+[info] count 492
+
+[info] count 493
+
+[info] count 494
+
+[info] count 495
+
+[info] count 496
+
+[info] count 497
+
+[info] count 498
+
+[info] count 499
+
+[info] count 500
+
+[info] count 501
+
+[info] count 502
+
+[info] count 503
+
+[info] count 504
+
+[info] count 505
+
+[info] count 506
+
+[info] count 507
+
+[info] count 508
+
+[info] count 509
+
+[info] count 510
+
+[info] count 511
+
+[info] count 512
+
+[info] count 513
+
