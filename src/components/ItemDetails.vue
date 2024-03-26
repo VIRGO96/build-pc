@@ -16,7 +16,7 @@
                     <td class="h5 fw-bold my-auto">{{ tableData.title }}</td>
                     <td>
                         <b-button
-                            v-if="!tableData.component"
+                            v-if="!tableData.productData"
                             variant="primary"
                             class="fw-semibold"
                             v-b-modal="`product-list-model`"
@@ -25,7 +25,7 @@
                         >
                         <div
                             class="d-flex flex-column justify-center"
-                            v-if="tableData.component"
+                            v-if="tableData.productData"
                         >
                             <img :src="processor" width="50px" class="m-auto" />
                             <b-form-rating
@@ -35,10 +35,11 @@
                             ></b-form-rating>
                         </div>
                     </td>
-                    <td v-if="tableData.component">
+                    <td v-if="tableData.productData">
                         <h5>
-                            Intel® Core™ ¡9-14900KF, 24 Cores & 32 Threads
-                            Unlocked Gaming Processor
+                            {{ tableData.productData.name }}
+                            <!-- Intel® Core™ ¡9-14900KF, 24 Cores & 32 Threads
+                            Unlocked Gaming Processor -->
                         </h5>
                         <b-row>
                             <b-col sm="6">
@@ -71,15 +72,15 @@
                             </b-col>
                         </b-row>
                     </td>
-                    <td v-if="tableData.component" class="fw-semibold">
+                    <td v-if="tableData.productData" class="fw-semibold">
                         €540.58
                     </td>
-                    <td v-if="tableData.component">
+                    <td v-if="tableData.productData">
                         <b-button variant="primary" class="fw-semibold"
                             >Buy from Amazon</b-button
                         >
                     </td>
-                    <td v-if="tableData.component">
+                    <td v-if="tableData.productData">
                         <b-button
                             variant="danger"
                             class="fw-semibold"
@@ -93,7 +94,11 @@
             </tbody>
         </table>
 
-        <ProductListModal :productId="selectedProduct" />
+        <ProductListModal
+            :productId="selectedProduct"
+            @product-selected="addComponentToTable"
+            @pricing-selected="addSelectedPriceToTable"
+        />
     </b-container>
 </template>
 
@@ -113,56 +118,103 @@ export default {
             tableData: [
                 {
                     title: "Processor",
-                    component: true,
+                    component: false,
                     refId: "cpus",
+                    productData: null,
+                    selectedPricing: null,
                 },
                 {
                     title: "Motherboard",
                     component: false,
                     refId: "motherboards",
+                    productData: null,
+                    selectedPricing: null,
                 },
                 {
                     title: "Power Supply",
                     component: false,
                     refId: "psus",
+                    productData: null,
+                    selectedPricing: null,
                 },
                 {
                     title: "Casing",
                     component: false,
                     refId: "cases",
+                    productData: null,
+                    selectedPricing: null,
                 },
                 {
                     title: "CPU Cooler",
                     component: false,
                     refId: "cpucoolers",
+                    productData: null,
+                    selectedPricing: null,
                 },
                 {
                     title: "Display",
                     component: false,
                     refId: "displays",
+                    productData: null,
+                    selectedPricing: null,
                 },
                 {
                     title: "Graphics Card",
                     component: false,
                     refId: "gpus",
+                    productData: null,
+                    selectedPricing: null,
                 },
                 {
                     title: "RAM",
                     component: false,
                     refId: "rams",
+                    productData: null,
+                    selectedPricing: null,
                 },
                 {
                     title: "Solid State Drive",
                     component: false,
                     refId: "ssds",
+                    productData: null,
+                    selectedPricing: null,
                 },
                 {
                     title: "Hard Disk",
                     component: false,
                     refId: "hdds",
+                    productData: null,
+                    selectedPricing: null,
                 },
             ],
         };
+    },
+    watch: {
+        tableData(newValue, oldValue) {
+            console.log("New Table Data", newValue);
+        },
+    },
+    methods: {
+        addComponentToTable(componentData, refId) {
+            console.log("Compoent data", componentData, refId);
+            const index = this.tableData.findIndex(
+                (item) => item.refId === refId
+            );
+            this.$set(this.tableData, index, {
+                ...this.tableData[index],
+                productData: componentData,
+            });
+        },
+        addSelectedPriceToTable(pricingData, refId) {
+            console.log("Pricing detail data", pricingData, refId);
+            const index = this.tableData.findIndex(
+                (item) => item.refId === refId
+            );
+            this.$set(this.tableData, index, {
+                ...this.tableData[index],
+                selectedPricing: pricingData,
+            });
+        },
     },
     // computed: {
     //     ...mapState({

@@ -49,7 +49,14 @@
                             <b-button
                                 v-b-modal="'pricing-list-model'"
                                 variant="primary"
-                                @click.stop="pricingDetail = item.prices"
+                                @click.stop="
+                                    pricingDetail = item.prices;
+                                    $emit(
+                                        'product-selected',
+                                        item,
+                                        scrapData.name
+                                    );
+                                "
                                 class="font-weight-bold"
                                 >+ ADD</b-button
                             >
@@ -58,7 +65,11 @@
                 </b-card>
             </div>
         </div>
-        <PricingListModal :pricingList="pricingDetail" />
+        <PricingListModal
+            @pricing-selected="addSelectedPricing"
+            :pricingList="pricingDetail"
+            :refId="scrapData.name"
+        />
     </b-modal>
 </template>
 
@@ -91,6 +102,11 @@ export default {
             console.log("productId old:", oldValue);
             console.log("productId changed:", newValue);
             this.$store.dispatch("fetchScrapData", this.productId);
+        },
+    },
+    methods: {
+        addSelectedPricing(pricing, refId) {
+            this.$emit("pricing-selected", pricing, refId);
         },
     },
 };

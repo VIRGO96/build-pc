@@ -38,6 +38,13 @@
                                 <b-button
                                     variant="primary"
                                     class="font-weight-bold"
+                                    @click.stop="
+                                        $emit(
+                                            'pricing-selected',
+                                            pricing,
+                                            refId
+                                        )
+                                    "
                                     >Select</b-button
                                 >
                             </td>
@@ -52,7 +59,7 @@
 <script>
 export default {
     name: "PricingListModal",
-    props: ["pricingList"],
+    props: ["pricingList", "refId"],
 };
 </script>
 
