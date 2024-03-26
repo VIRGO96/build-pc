@@ -3,7 +3,7 @@
         <b-row>
             <b-col md="10" lg="8" xl="6" class="mx-auto">
                 <b-card class="mt-5 justify-content-center">
-                    <h3 class="mb-4 text-capitalize fw-bold">Login</h3>
+                    <h3 class="mb-4 text-capitalize font-weight-bold">Login</h3>
                     <div>
                         <b-form
                             ref="signUpForm"
@@ -39,7 +39,7 @@
                                 type="submit"
                                 variant="primary"
                                 block
-                                class="mt-2 py-2 text-white w-100 fw-bold"
+                                class="mt-2 py-2 text-white w-100 font-weight-bold"
                             >
                                 <span
                                     class="d-flex align-items-center justify-content-center"

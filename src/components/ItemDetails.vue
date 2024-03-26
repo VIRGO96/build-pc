@@ -19,8 +19,8 @@
                             v-if="!tableData.component"
                             variant="primary"
                             class="fw-semibold"
-                            v-b-modal="'product-list-model'"
-                            @click.stop=""
+                            v-b-modal="`product-list-model`"
+                            @click.stop="selectedProduct = tableData.refId"
                             >+ ADD Component</b-button
                         >
                         <div
@@ -92,336 +92,94 @@
                 </tr>
             </tbody>
         </table>
-        <b-modal
-            id="product-list-model"
-            size="lg"
-            title="Products List"
-            hide-footer
-        >
-            <div class="my-4 modal-height">
-                <b-card class="mb-2">
-                    <b-row>
-                        <b-col cols="6" md="3">
-                            <b-img
-                                thumbnail
-                                fluid
-                                src="https://images2.productserve.com/?w=200&h=200&bg=white&trim=5&t=letterbox&url=ssl%3Acdn-reichelt.de%2Fbilder%2Fweb%2Fxxl_ws%2FE200%2FBX8070110700KF_01.png&feedId=34189&k=03717e9ee5afcfc02ca80cebdbb74c46fcec8e65"
-                                alt="Product Image"
-                            ></b-img>
-                        </b-col>
-                        <b-col>
-                            <h5>Intel Core i7-10700KF</h5>
 
-                            <div class="d-flex flex-wrap mb-2">
-                                <span
-                                    class="badge rounded-pill bg-secondary me-1 mt-1"
-                                    >Socket AM4</span
-                                >
-                                <span
-                                    class="badge rounded-pill bg-secondary me-1 mt-1"
-                                    >Clock 3.7 GHz</span
-                                >
-                                <span
-                                    class="badge rounded-pill bg-secondary me-1 mt-1"
-                                    >Turbo 4.6 GHz</span
-                                >
-                                <span
-                                    class="badge rounded-pill bg-secondary me-1 mt-1"
-                                    >6 Cores</span
-                                >
-                                <span
-                                    class="badge rounded-pill bg-secondary me-1 mt-1"
-                                    >12 Threads</span
-                                >
-                            </div>
-                            <small>
-                                <span class="fw-bold">Performance Level:</span>
-                                <span class="ms-2">7.64</span>
-                            </small>
-                            <div class="mb-2">
-                                <span class="fw-bold">Price:</span>
-                                <span class="ms-2">USD 289.96</span>
-                            </div>
-                            <b-button variant="primary" class="fw-semibold"
-                                >+ ADD</b-button
-                            >
-                        </b-col>
-                    </b-row>
-                </b-card>
-                <b-card class="mb-2">
-                    <b-row>
-                        <b-col cols="6" md="3">
-                            <b-img
-                                thumbnail
-                                fluid
-                                src="https://images2.productserve.com/?w=200&h=200&bg=white&trim=5&t=letterbox&url=ssl%3Acdn-reichelt.de%2Fbilder%2Fweb%2Fxxl_ws%2FE200%2FBX8070110700KF_01.png&feedId=34189&k=03717e9ee5afcfc02ca80cebdbb74c46fcec8e65"
-                                alt="Product Image"
-                            ></b-img>
-                        </b-col>
-                        <b-col>
-                            <h5>Intel Core i7-10700KF</h5>
-
-                            <div class="d-flex flex-wrap mb-2">
-                                <span
-                                    class="badge rounded-pill bg-secondary me-1 mt-1"
-                                    >Socket AM4</span
-                                >
-                                <span
-                                    class="badge rounded-pill bg-secondary me-1 mt-1"
-                                    >Clock 3.7 GHz</span
-                                >
-                                <span
-                                    class="badge rounded-pill bg-secondary me-1 mt-1"
-                                    >Turbo 4.6 GHz</span
-                                >
-                                <span
-                                    class="badge rounded-pill bg-secondary me-1 mt-1"
-                                    >6 Cores</span
-                                >
-                                <span
-                                    class="badge rounded-pill bg-secondary me-1 mt-1"
-                                    >12 Threads</span
-                                >
-                            </div>
-                            <small>
-                                <span class="fw-bold">Performance Level:</span>
-                                <span class="ms-2">7.64</span>
-                            </small>
-                            <div class="mb-2">
-                                <span class="fw-bold">Price:</span>
-                                <span class="ms-2">USD 289.96</span>
-                            </div>
-                            <b-button variant="primary" class="fw-semibold"
-                                >+ ADD</b-button
-                            >
-                        </b-col>
-                    </b-row>
-                </b-card>
-                <b-card class="mb-2">
-                    <b-row>
-                        <b-col cols="6" md="3">
-                            <b-img
-                                thumbnail
-                                fluid
-                                src="https://images2.productserve.com/?w=200&h=200&bg=white&trim=5&t=letterbox&url=ssl%3Acdn-reichelt.de%2Fbilder%2Fweb%2Fxxl_ws%2FE200%2FBX8070110700KF_01.png&feedId=34189&k=03717e9ee5afcfc02ca80cebdbb74c46fcec8e65"
-                                alt="Product Image"
-                            ></b-img>
-                        </b-col>
-                        <b-col>
-                            <h5>Intel Core i7-10700KF</h5>
-
-                            <div class="d-flex flex-wrap mb-2">
-                                <span
-                                    class="badge rounded-pill bg-secondary me-1 mt-1"
-                                    >Socket AM4</span
-                                >
-                                <span
-                                    class="badge rounded-pill bg-secondary me-1 mt-1"
-                                    >Clock 3.7 GHz</span
-                                >
-                                <span
-                                    class="badge rounded-pill bg-secondary me-1 mt-1"
-                                    >Turbo 4.6 GHz</span
-                                >
-                                <span
-                                    class="badge rounded-pill bg-secondary me-1 mt-1"
-                                    >6 Cores</span
-                                >
-                                <span
-                                    class="badge rounded-pill bg-secondary me-1 mt-1"
-                                    >12 Threads</span
-                                >
-                            </div>
-                            <small>
-                                <span class="fw-bold">Performance Level:</span>
-                                <span class="ms-2">7.64</span>
-                            </small>
-                            <div class="mb-2">
-                                <span class="fw-bold">Price:</span>
-                                <span class="ms-2">USD 289.96</span>
-                            </div>
-                            <b-button variant="primary" class="fw-semibold"
-                                >+ ADD</b-button
-                            >
-                        </b-col>
-                    </b-row>
-                </b-card>
-                <b-card class="mb-2">
-                    <b-row>
-                        <b-col cols="6" md="3">
-                            <b-img
-                                thumbnail
-                                fluid
-                                src="https://images2.productserve.com/?w=200&h=200&bg=white&trim=5&t=letterbox&url=ssl%3Acdn-reichelt.de%2Fbilder%2Fweb%2Fxxl_ws%2FE200%2FBX8070110700KF_01.png&feedId=34189&k=03717e9ee5afcfc02ca80cebdbb74c46fcec8e65"
-                                alt="Product Image"
-                            ></b-img>
-                        </b-col>
-                        <b-col>
-                            <h5>Intel Core i7-10700KF</h5>
-
-                            <div class="d-flex flex-wrap mb-2">
-                                <span
-                                    class="badge rounded-pill bg-secondary me-1 mt-1"
-                                    >Socket AM4</span
-                                >
-                                <span
-                                    class="badge rounded-pill bg-secondary me-1 mt-1"
-                                    >Clock 3.7 GHz</span
-                                >
-                                <span
-                                    class="badge rounded-pill bg-secondary me-1 mt-1"
-                                    >Turbo 4.6 GHz</span
-                                >
-                                <span
-                                    class="badge rounded-pill bg-secondary me-1 mt-1"
-                                    >6 Cores</span
-                                >
-                                <span
-                                    class="badge rounded-pill bg-secondary me-1 mt-1"
-                                    >12 Threads</span
-                                >
-                            </div>
-                            <small>
-                                <span class="fw-bold">Performance Level:</span>
-                                <span class="ms-2">7.64</span>
-                            </small>
-                            <div class="mb-2">
-                                <span class="fw-bold">Price:</span>
-                                <span class="ms-2">USD 289.96</span>
-                            </div>
-                            <b-button variant="primary" class="fw-semibold"
-                                >+ ADD</b-button
-                            >
-                        </b-col>
-                    </b-row>
-                </b-card>
-                <b-card class="mb-2">
-                    <b-row>
-                        <b-col cols="6" md="3">
-                            <b-img
-                                thumbnail
-                                fluid
-                                src="https://images2.productserve.com/?w=200&h=200&bg=white&trim=5&t=letterbox&url=ssl%3Acdn-reichelt.de%2Fbilder%2Fweb%2Fxxl_ws%2FE200%2FBX8070110700KF_01.png&feedId=34189&k=03717e9ee5afcfc02ca80cebdbb74c46fcec8e65"
-                                alt="Product Image"
-                            ></b-img>
-                        </b-col>
-                        <b-col>
-                            <h5>Intel Core i7-10700KF</h5>
-
-                            <div class="d-flex flex-wrap mb-2">
-                                <span
-                                    class="badge rounded-pill bg-secondary me-1 mt-1"
-                                    >Socket AM4</span
-                                >
-                                <span
-                                    class="badge rounded-pill bg-secondary me-1 mt-1"
-                                    >Clock 3.7 GHz</span
-                                >
-                                <span
-                                    class="badge rounded-pill bg-secondary me-1 mt-1"
-                                    >Turbo 4.6 GHz</span
-                                >
-                                <span
-                                    class="badge rounded-pill bg-secondary me-1 mt-1"
-                                    >6 Cores</span
-                                >
-                                <span
-                                    class="badge rounded-pill bg-secondary me-1 mt-1"
-                                    >12 Threads</span
-                                >
-                            </div>
-                            <small>
-                                <span class="fw-bold">Performance Level:</span>
-                                <span class="ms-2">7.64</span>
-                            </small>
-                            <div class="mb-2">
-                                <span class="fw-bold">Price:</span>
-                                <span class="ms-2">USD 289.96</span>
-                            </div>
-                            <b-button variant="primary" class="fw-semibold"
-                                >+ ADD</b-button
-                            >
-                        </b-col>
-                    </b-row>
-                </b-card>
-            </div>
-        </b-modal>
+        <ProductListModal :productId="selectedProduct" />
     </b-container>
 </template>
 
 <script>
+import { mapState } from "vuex";
 import processor from "../assets/processor.jpg";
+import ProductListModal from "../components/modals/ProductListModal.vue";
 export default {
     name: "ItemDetails",
+    components: { ProductListModal },
     data() {
         return {
             component: false,
             processor,
             rating: "4.5",
+            selectedProduct: "cpus",
             tableData: [
                 {
                     title: "Processor",
-                    component: false,
+                    component: true,
+                    refId: "cpus",
                 },
                 {
                     title: "Motherboard",
                     component: false,
+                    refId: "motherboards",
+                },
+                {
+                    title: "Power Supply",
+                    component: false,
+                    refId: "psus",
+                },
+                {
+                    title: "Casing",
+                    component: false,
+                    refId: "cases",
                 },
                 {
                     title: "CPU Cooler",
                     component: false,
+                    refId: "cpucoolers",
+                },
+                {
+                    title: "Display",
+                    component: false,
+                    refId: "displays",
                 },
                 {
                     title: "Graphics Card",
                     component: false,
+                    refId: "gpus",
                 },
                 {
                     title: "RAM",
                     component: false,
+                    refId: "rams",
                 },
                 {
-                    title: "Storage",
+                    title: "Solid State Drive",
                     component: false,
+                    refId: "ssds",
                 },
                 {
-                    title: "Case Cooler",
+                    title: "Hard Disk",
                     component: false,
+                    refId: "hdds",
                 },
             ],
         };
     },
+    // computed: {
+    //     ...mapState({
+    //         isDataLoading: (state) => state.ScrapData.isDataLoading,
+    //         processors: (state) => {
+    //             console.log("Hammza CPUS", state.ScrapData.processors);
+    //             return state.ScrapData.processors;
+    //         },
+    //     }),
+    // },
+    // mounted() {
+    //     this.$store.dispatch("fetchCpus");
+    // },
 };
 </script>
 
 <style lang="scss" scoped>
-.modal-height {
-    max-height: 380px;
-    overflow-x: hidden;
-    overflow-y: scroll;
-}
-::-webkit-scrollbar {
-    width: 8px !important;
-    height: 8px !important;
-    margin-left: 2px !important;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-    border-radius: 10px;
-    background: #f7f6f6;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    background: rgba(204, 204, 204, 0.3);
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-    background: rgba(204, 204, 204, 0.5);
-}
-
 th,
 td {
     padding: 20px !important;
