@@ -149,6 +149,19 @@
                     </td>
                 </tr>
             </tbody>
+            <tfoot>
+                <tr>
+                    <td
+                        colspan="5"
+                        class="font-weight-bold h4 text-capitalize text-right"
+                    >
+                        <span>Total:</span>
+                    </td>
+                    <td class="font-weight-bold h4 text-secondary">
+                        <span>${{ totalAmount }}</span>
+                    </td>
+                </tr>
+            </tfoot>
         </table>
 
         <div class="mt-3 w-100 d-flex justify-content-end">
@@ -291,6 +304,20 @@ export default {
                 ...this.tableData[index],
                 selectedPricing: pricingData,
             });
+        },
+    },
+    computed: {
+        totalAmount() {
+            return this.tableData
+                .reduce((total, item) => {
+                    return (
+                        total +
+                        (item.selectedPricing
+                            ? Number(item.selectedPricing.price)
+                            : 0)
+                    );
+                }, 0)
+                .toFixed(2);
         },
     },
     // computed: {
