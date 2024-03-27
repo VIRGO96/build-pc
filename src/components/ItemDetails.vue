@@ -149,6 +149,7 @@
                     </td>
                 </tr>
             </tbody>
+
             <tfoot>
                 <tr>
                     <td
@@ -162,14 +163,28 @@
                     </td>
                 </tr>
             </tfoot>
+            <tfoot>
+                <tr>
+                    <td
+                        colspan="5"
+                        class="font-weight-bold h4 text-capitalize text-right"
+                    >
+                        <span>Shipping Cost:</span>
+                    </td>
+                    <td class="font-weight-bold h4 text-secondary">
+                        <span>${{ totalShippingCost }}</span>
+                    </td>
+                </tr>
+            </tfoot>
         </table>
 
         <div class="mt-3 w-100 d-flex justify-content-end">
             <b-button
                 variant="primary"
                 class="font-weight-bold py-3"
-                @click.stop="deleteComponentFromTable(tableData.refId)"
-                >Submit Build</b-button
+                v-b-modal="`submit-build-model`"
+                @click.stop="handleSubmitBuild"
+                >Submit</b-button
             >
         </div>
 
@@ -178,6 +193,33 @@
             @product-selected="addComponentToTable"
             @pricing-selected="addSelectedPriceToTable"
         />
+        <b-modal :id="`submit-build-model`" hide-footer>
+            <div>
+                <h4 class="mb-3">What do you want to title this PC?</h4>
+                <b-form @submit="handleSubmitBuild">
+                    <b-row class="mb-3">
+                        <b-col>
+                            <b-form-input
+                                size="lg"
+                                type="text"
+                                class="form-control"
+                                placeholder="Title of Pc"
+                                required
+                            />
+                        </b-col>
+                    </b-row>
+
+                    <b-button
+                        type="submit"
+                        variant="primary"
+                        block
+                        class="mt-2 py-2 text-white w-100 font-weight-bold"
+                    >
+                        <span>Submit Build</span></b-button
+                    >
+                </b-form>
+            </div>
+        </b-modal>
     </b-container>
 </template>
 
@@ -197,70 +239,60 @@ export default {
             tableData: [
                 {
                     title: "Processor",
-                    component: false,
                     refId: "cpus",
                     productData: null,
                     selectedPricing: null,
                 },
                 {
                     title: "Motherboard",
-                    component: false,
                     refId: "motherboards",
                     productData: null,
                     selectedPricing: null,
                 },
                 {
                     title: "Power Supply",
-                    component: false,
                     refId: "psus",
                     productData: null,
                     selectedPricing: null,
                 },
                 {
                     title: "Casing",
-                    component: false,
                     refId: "cases",
                     productData: null,
                     selectedPricing: null,
                 },
                 {
                     title: "CPU Cooler",
-                    component: false,
                     refId: "cpucoolers",
                     productData: null,
                     selectedPricing: null,
                 },
                 {
                     title: "Display",
-                    component: false,
                     refId: "displays",
                     productData: null,
                     selectedPricing: null,
                 },
                 {
                     title: "Graphics Card",
-                    component: false,
                     refId: "gpus",
                     productData: null,
                     selectedPricing: null,
                 },
                 {
                     title: "RAM",
-                    component: false,
                     refId: "rams",
                     productData: null,
                     selectedPricing: null,
                 },
                 {
                     title: "Solid State Drive",
-                    component: false,
                     refId: "ssds",
                     productData: null,
                     selectedPricing: null,
                 },
                 {
                     title: "Hard Disk",
-                    component: false,
                     refId: "hdds",
                     productData: null,
                     selectedPricing: null,
@@ -274,6 +306,7 @@ export default {
         },
     },
     methods: {
+        handleSubmitBuild() {},
         addComponentToTable(componentData, refId) {
             console.log("Compoent data", componentData, refId);
             const index = this.tableData.findIndex(
@@ -314,6 +347,18 @@ export default {
                         total +
                         (item.selectedPricing
                             ? Number(item.selectedPricing.price)
+                            : 0)
+                    );
+                }, 0)
+                .toFixed(2);
+        },
+        totalShippingCost() {
+            return this.tableData
+                .reduce((total, item) => {
+                    return (
+                        total +
+                        (item.selectedPricing
+                            ? Number(item.selectedPricing.shipping)
                             : 0)
                     );
                 }, 0)
