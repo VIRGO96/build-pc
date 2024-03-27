@@ -8,6 +8,7 @@ import {
     collection,
     getDoc,
     setDoc,
+    onAuthStateChanged,
     doc,
 } from "../../config/firebase";
 
@@ -143,6 +144,15 @@ let actions = {
             alert(error.response.data.message);
             commit("setIsLoading", false);
         }
+    },
+    async checkAuthState({ commit }) {
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                commit("setIsUserLoggedIn", true);
+            } else {
+                commit("setIsUserLoggedIn", false);
+            }
+        });
     },
 };
 

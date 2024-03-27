@@ -14,6 +14,8 @@ Vue.use(BootstrapVue);
 
 Vue.config.productionTip = false;
 
+store.dispatch("checkAuthState");
+
 let app;
 
 onAuthStateChanged(auth, () => {
