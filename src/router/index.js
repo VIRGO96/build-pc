@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
+import MyBuilds from "../views/MyBuilds.vue";
 import ItemDetails from "../components/ItemDetails.vue";
 import Login from "../views/Login.vue";
 import SignUp from "../views/SignUp.vue";
@@ -31,6 +32,12 @@ const routes = [
         path: "/item-details",
         name: "ItemDetails",
         component: ItemDetails,
+        meta: { requiresAuth: true },
+    },
+    {
+        path: "/my-builds",
+        name: "MyBuilds",
+        component: MyBuilds,
         meta: { requiresAuth: true },
     },
     {

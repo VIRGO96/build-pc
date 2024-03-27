@@ -27,6 +27,9 @@
                     <b-nav-item href="#" class="font-weight-bold"
                         >User Builds</b-nav-item
                     >
+                    <b-nav-item href="/my-builds" class="font-weight-bold"
+                        >My Builds</b-nav-item
+                    >
                     <b-nav-item href="#" class="font-weight-bold"
                         >Profile</b-nav-item
                     >

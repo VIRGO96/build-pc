@@ -48,4 +48,14 @@ export default {
         height: 1.2rem;
     }
 }
+.pc-card {
+    .b-rating .b-rating-star,
+    .b-rating .b-rating-value {
+        padding: 0px 0.1em !important;
+        flex-grow: inherit !important;
+    }
+}
+.pointer {
+    cursor: pointer;
+}
 </style>
