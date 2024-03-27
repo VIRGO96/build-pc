@@ -43,7 +43,9 @@
                                             'pricing-selected',
                                             pricing,
                                             refId
-                                        )
+                                        );
+                                        closePricingModal();
+                                        $emit('close-product-modal');
                                     "
                                     >Select</b-button
                                 >
@@ -60,6 +62,11 @@
 export default {
     name: "PricingListModal",
     props: ["pricingList", "refId"],
+    methods: {
+        closePricingModal() {
+            this.$bvModal.hide("pricing-list-model");
+        },
+    },
 };
 </script>
 

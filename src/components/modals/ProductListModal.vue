@@ -49,6 +49,7 @@
                             <b-button
                                 v-b-modal="'pricing-list-model'"
                                 variant="primary"
+                                :disabled="!item.price"
                                 @click.stop="
                                     pricingDetail = item.prices;
                                     $emit(
@@ -67,6 +68,7 @@
         </div>
         <PricingListModal
             @pricing-selected="addSelectedPricing"
+            @close-product-modal="closeProductModal"
             :pricingList="pricingDetail"
             :refId="scrapData.name"
         />
@@ -83,6 +85,7 @@ export default {
     data() {
         return {
             pricingDetail: "",
+            productData: "",
         };
     },
     computed: {
@@ -107,6 +110,9 @@ export default {
     methods: {
         addSelectedPricing(pricing, refId) {
             this.$emit("pricing-selected", pricing, refId);
+        },
+        closeProductModal() {
+            this.$bvModal.hide("product-list-model");
         },
     },
 };
