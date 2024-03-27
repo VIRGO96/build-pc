@@ -8,7 +8,7 @@
         </div>
         <div v-else>
             <h2 class="text-capitalize font-weight-bold">
-                {{ scrapData.name }}
+                {{ headings[scrapData.name] }} List
             </h2>
             <div class="my-4 modal-height">
                 <b-card v-for="item in scrapData.data" class="mb-2">
@@ -42,21 +42,21 @@
                             </small>
                             <div class="mb-2">
                                 <span class="font-weight-bold">Price:</span>
-                                <span class="ml-2">{{ item.price }}</span>
+                                <span class="ml-2">{{
+                                    item.price ? item.price : "N/A"
+                                }}</span>
                             </div>
                         </b-col>
                         <b-col cols="3" md="3" lg="2">
                             <b-button
+                                v-b-tooltip.top
+                                :title="item.price ? '' : 'Not available'"
                                 v-b-modal="'pricing-list-model'"
                                 variant="primary"
                                 :disabled="!item.price"
                                 @click.stop="
+                                    productDetail = item;
                                     pricingDetail = item.prices;
-                                    $emit(
-                                        'product-selected',
-                                        item,
-                                        scrapData.name
-                                    );
                                 "
                                 class="font-weight-bold"
                                 >+ ADD</b-button
@@ -68,9 +68,11 @@
         </div>
         <PricingListModal
             @pricing-selected="addSelectedPricing"
+            @product-selected="addSelectedProduct"
             @close-product-modal="closeProductModal"
             :pricingList="pricingDetail"
             :refId="scrapData.name"
+            :productData="productDetail"
         />
     </b-modal>
 </template>
@@ -85,7 +87,19 @@ export default {
     data() {
         return {
             pricingDetail: "",
-            productData: "",
+            productDetail: "",
+            headings: {
+                cpus: "Processor",
+                motherboards: "Motherboard",
+                psus: "Power Supply",
+                cases: "Casing",
+                cpucoolers: "CPU Cooler",
+                displays: "Display",
+                gpus: "Graphics Card",
+                rams: "RAM",
+                ssds: "Solid State Drive",
+                hdds: "Hard Disk",
+            },
         };
     },
     computed: {
@@ -106,10 +120,19 @@ export default {
             console.log("productId changed:", newValue);
             this.$store.dispatch("fetchScrapData", this.productId);
         },
+        productDetail(newValue, oldValue) {
+            console.log("product Data: in product listing", oldValue);
+            console.log("product Data changed:", newValue);
+            console.log("product Data state", this.productDetail);
+        },
     },
     methods: {
         addSelectedPricing(pricing, refId) {
             this.$emit("pricing-selected", pricing, refId);
+        },
+        addSelectedProduct(productData, refId) {
+            console.log("Product data in product modal", productData, refId);
+            this.$emit("product-selected", productData, refId);
         },
         closeProductModal() {
             this.$bvModal.hide("product-list-model");

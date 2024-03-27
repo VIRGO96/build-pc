@@ -38,7 +38,16 @@
                                 <b-button
                                     variant="primary"
                                     class="font-weight-bold"
+                                    :disabled="
+                                        pricing.availability.toLowerCase() ===
+                                        'not in stock'
+                                    "
                                     @click.stop="
+                                        $emit(
+                                            'product-selected',
+                                            productData,
+                                            refId
+                                        );
                                         $emit(
                                             'pricing-selected',
                                             pricing,
@@ -61,10 +70,20 @@
 <script>
 export default {
     name: "PricingListModal",
-    props: ["pricingList", "refId"],
+    props: ["pricingList", "refId", "productData"],
     methods: {
         closePricingModal() {
             this.$bvModal.hide("pricing-list-model");
+        },
+    },
+    mounted() {
+        console.log("Initial productData:", this.productData);
+    },
+    watch: {
+        productData(newValue, oldValue) {
+            console.log("product Data: in price listing", oldValue);
+            console.log("product Data changed:", newValue);
+            console.log("product Data state", this.productData);
         },
     },
 };
